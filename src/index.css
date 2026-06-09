@@ -48,3 +48,59 @@ body {
   margin-top: 40px !important;
 }
 
+
+.happy-client-slider {
+  padding: 30px 0 70px !important;
+}
+
+.happy-client-slider .swiper-slide {
+  transition: all 0.5s ease;
+}
+
+.happy-client-slider .client-card {
+  transform: scale(0.82);
+  opacity: 0.65;
+  transition: all 0.5s ease;
+}
+
+.happy-client-slider .swiper-slide-active .client-card {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.happy-client-slider .swiper-pagination {
+  position: relative !important;
+  margin-top: 35px !important;
+}
+
+.happy-client-slider .swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  background: #ffd4b3 !important;
+  opacity: 1 !important;
+  transition: all 0.4s ease;
+}
+
+.happy-client-slider .swiper-pagination-bullet-active {
+  width: 36px !important;
+  border-radius: 999px !important;
+  background: #ff7300 !important;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.newsletter-float {
+  animation: float 4s ease-in-out infinite;
+}

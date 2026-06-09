@@ -1,65 +1,59 @@
-import { ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const softwareItems = [
-    "HR Software",
-    "Payroll Software",
-    "CRM Software",
-    "ERP Software",
-    "Accounting Software",
-    "Hospital Management Software",
-    "Hotel Management Software",
-    "Restaurant Management Software",
-    "Point Of Sale Software",
-    "Project Management Software",
-    "E-commerce Platforms",
-    "AI Software",
+    "HR Software", "Payroll Software", "CRM Software", "ERP Software",
+    "Accounting Software", "Hospital Management Software",
+    "Restaurant Management Software", "Point Of Sale Software",
+    "Project Management Software", "E-commerce Platforms", "AI Software",
   ];
 
   const serviceItems = [
-    "Mobile App Development",
-    "Web Development",
-    "Software Development",
-    "E-commerce Development",
-    "Block Chain Technology",
-    "Digital Marketing",
-    "Web Designing UI/UX",
-    "App Designing UI/UX",
-    "SEO Services",
-    "Big Data and BI",
-    "Artificial Intelligence",
-    "IoT Development",
-    "AR & VR Development",
-    "Testing Services",
+    "Mobile App Development", "Web Development", "Software Development",
+    "E-commerce Development", "Digital Marketing", "Web Designing UI/UX",
+    "SEO Services", "Big Data and BI", "Artificial Intelligence",
+    "IoT Development", "AR & VR Development", "Testing Services",
   ];
 
-  const onButtonClick = () => {
-    alert("hi");
-  };
-
   const Dropdown = ({ title, items, buttonText }) => {
+    const [open, setOpen] = useState(false);
+
     return (
       <div className="relative group">
-        <a
-          href="#"
+        <button
+          onClick={() => setOpen(!open)}
           className="flex items-center gap-1 font-medium hover:text-orange-500 transition-all"
         >
           {title}
-          <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" />
-        </a>
+          <ChevronDown
+            className={`w-4 h-4 transition-transform duration-300 ${
+              open ? "rotate-180" : "group-hover:rotate-180"
+            }`}
+          />
+        </button>
 
-        <div className="absolute left-0 top-full mt-5 w-[850px] bg-white rounded-3xl shadow-xl border border-orange-100 p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-3 group-hover:translate-y-0 transition-all duration-300">
-          <div className="grid grid-cols-3 gap-4">
+        <div
+          className={`
+            lg:absolute lg:left-0 lg:top-full lg:mt-5 lg:w-[850px]
+            bg-white lg:rounded-3xl lg:shadow-xl lg:border lg:border-orange-100 lg:p-6
+            lg:opacity-0 lg:invisible lg:group-hover:opacity-100 lg:group-hover:visible
+            transition-all duration-300
+            ${open ? "block mt-4" : "hidden lg:block"}
+          `}
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {items.map((item, index) => (
               <a
                 key={index}
                 href="#"
-                className="flex items-center gap-3 p-3 rounded-xl hover:bg-orange-50 transition-all duration-300"
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-orange-50"
               >
                 <span className="w-9 h-9 rounded-full bg-orange-100 flex items-center justify-center text-orange-500">
                   ⚙
                 </span>
-
                 <span className="text-gray-700 text-sm">{item}</span>
               </a>
             ))}
@@ -67,7 +61,7 @@ function Navbar() {
 
           <a
             href="#"
-            className="block mt-5 text-center bg-orange-500 text-white py-3 rounded-full hover:bg-orange-600 transition-all"
+            className="block mt-5 text-center bg-orange-500 text-white py-3 rounded-full hover:bg-orange-600"
           >
             {buttonText}
           </a>
@@ -81,37 +75,40 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <h2 className="text-2xl font-bold text-orange-500">TechMarket</h2>
 
-        <nav className="flex gap-10 text-sm">
-          <Dropdown
-            title="Find Softwares"
-            items={softwareItems}
-            buttonText="Browse All Software Category"
-          />
-
-          <Dropdown
-            title="Find Services"
-            items={serviceItems}
-            buttonText="Browse All Services"
-          />
+        <nav className="hidden lg:flex gap-10 text-sm">
+          <Dropdown title="Find Softwares" items={softwareItems} buttonText="Browse All Software Category" />
+          <Dropdown title="Find Services" items={serviceItems} buttonText="Browse All Services" />
         </nav>
 
-        <div className="flex gap-3">
-          <a
-            href="#"
-            className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-5 py-2 rounded-full bg-white transition-all duration-300"
-          >
+        <div className="hidden lg:flex gap-3">
+          <a href="#" className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white px-5 py-2 rounded-full transition-all">
             Login
           </a>
-
-          <a
-            href="#"
-            onClick={onButtonClick}
-            className="bg-orange-500 text-white px-5 py-2 rounded-full border border-orange-500 hover:text-orange-500 hover:border hover:border-orange-500 hover:bg-transparent transition-all duration-300"
-          >
+          <a href="#" className="bg-orange-500 text-white px-5 py-2 rounded-full border border-orange-500 hover:text-orange-500 hover:bg-transparent transition-all">
             Get Listed
           </a>
         </div>
+
+        <button className="lg:hidden text-orange-500" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
       </div>
+
+      {isOpen && (
+        <div className="lg:hidden bg-white border-t border-orange-100 px-6 py-6 space-y-6">
+          <Dropdown title="Find Softwares" items={softwareItems} buttonText="Browse All Software Category" />
+          <Dropdown title="Find Services" items={serviceItems} buttonText="Browse All Services" />
+
+          <div className="flex flex-col gap-3 pt-4">
+            <a href="#" className="text-center border border-orange-500 text-orange-500 px-5 py-3 rounded-full">
+              Login
+            </a>
+            <a href="#" className="text-center bg-orange-500 text-white px-5 py-3 rounded-full">
+              Get Listed
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

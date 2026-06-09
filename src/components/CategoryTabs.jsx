@@ -19,7 +19,6 @@ function CategoryTabs() {
       "Software Development",
       "Testing Services",
     ],
-
     "Software Solution": [
       "CRM Software",
       "HRM Software",
@@ -28,7 +27,6 @@ function CategoryTabs() {
       "Paying Guest Software",
       "IVR Service",
     ],
-
     "Digital Marketing": [
       "SEO Services",
       "Social Media Marketing",
@@ -40,9 +38,9 @@ function CategoryTabs() {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
       {/* Tabs */}
-      <div className="border border-orange-200 rounded-full overflow-hidden flex mb-10">
+      <div className="border border-orange-200 rounded-3xl sm:rounded-full overflow-hidden flex flex-col sm:flex-row mb-8 sm:mb-10">
         {tabs.map((tab) => (
           <button
             key={tab}
@@ -50,7 +48,7 @@ function CategoryTabs() {
               setActiveTab(tab);
               setActiveCard(0);
             }}
-            className={`flex-1 py-4 text-lg font-semibold transition-all duration-300 ${
+            className={`w-full sm:flex-1 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 ${
               activeTab === tab
                 ? "bg-orange-500 text-white"
                 : "bg-white text-orange-500"
@@ -62,26 +60,25 @@ function CategoryTabs() {
       </div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {categories[activeTab].map((item, index) => (
           <div
             key={index}
             onMouseEnter={() => setActiveCard(index)}
-            className={`h-40 rounded-3xl p-6 flex justify-between items-start cursor-pointer transition-all duration-300 ${
+            onClick={() => setActiveCard(index)}
+            className={`min-h-32 sm:h-40 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex justify-between items-start cursor-pointer transition-all duration-300 ${
               activeCard === index
                 ? "bg-orange-500 text-white"
                 : "bg-[#FFF7F1] text-black"
             }`}
           >
-            <h3 className="text-xl font-medium leading-tight max-w-[180px]">
+            <h3 className="text-lg sm:text-xl font-medium leading-tight max-w-[170px]">
               {item}
             </h3>
 
             <div
-              className={`text-5xl transition-all duration-300 ${
-                activeCard === index
-                  ? "text-white"
-                  : "text-orange-400"
+              className={`text-4xl sm:text-5xl transition-all duration-300 ${
+                activeCard === index ? "text-white" : "text-orange-400"
               }`}
             >
               ⚙
@@ -91,8 +88,8 @@ function CategoryTabs() {
       </div>
 
       {/* Button */}
-      <div className="text-center mt-10">
-        <button className="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full transition-all duration-300">
+      <div className="text-center mt-8 sm:mt-10">
+        <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 sm:px-10 py-3 sm:py-4 rounded-full text-sm sm:text-base transition-all duration-300">
           Browse all software category
         </button>
       </div>

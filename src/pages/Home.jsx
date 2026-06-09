@@ -5,6 +5,12 @@ import partnerLogo from "../assets/images/partner-logo.png"
 import arrow from "../assets/images/Arrow.svg"
 import PartnerCarousel from "../components/PartnerCarousel"
 import CategoryTabs from "../components/CategoryTabs";
+import TrustSection from "../components/TrustSection";
+import Testimonials from "../components/Testimonials";
+import HappyClients from "../components/HappyClients";
+import HowItHelps from "../components/HowItHelps";
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
 
 
 
@@ -48,8 +54,21 @@ function Home() {
   </div>
 </section>
 
-<CategoryTabs />
-    </>
+<CategoryTabs />   
+
+<TrustSection />
+
+<Testimonials />
+
+<HappyClients />
+
+<HowItHelps/>
+
+<Newsletter />
+
+<Footer />
+</>
+    
   );
 }
 
