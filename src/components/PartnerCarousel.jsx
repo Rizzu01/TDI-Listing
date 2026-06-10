@@ -4,7 +4,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 // import css from "../index.css"
-import partner from "../assets/images/patner-1.png";
+import partner from "../assets/images/partner-1.png";
 import partnerLogo from "../assets/images/partner-logo.png";
 import arrow from "../assets/images/arrow.svg";
 

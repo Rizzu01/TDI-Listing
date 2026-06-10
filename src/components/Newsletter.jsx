@@ -1,4 +1,4 @@
-import { FaPaperPlane } from "react-icons/fa";
+
 import newsletterImg from "../assets/images/newsletter.png";
 
 function Newsletter() {
