@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 // import css from "../index.css"
 import partner from "../assets/images/partner-1.png";
 import partnerLogo from "../assets/images/partner-logo.png";
-import arrow from "../assets/images/arrow.svg";
+import arrow from "../assets/images/arrow-1.svg";
 
 function PartnerCarousel() {
   const cards = [1, 2, 3, 4, 5, 6];
