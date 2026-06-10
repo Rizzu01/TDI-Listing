@@ -12,7 +12,10 @@ function PartnerCarousel() {
   const cards = [1, 2, 3, 4, 5, 6];
 
   return (
-    <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 overflow-hidden">
+    <section
+      className="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 overflow-hidden"
+      data-aos="fade-up"
+    >
       <Swiper
         modules={[Autoplay, Pagination]}
         loop={true}
@@ -42,11 +45,15 @@ function PartnerCarousel() {
             spaceBetween: 24,
           },
         }}
+        className="partner-slider"
       >
-        {cards.map((item) => (
+        {cards.map((item, index) => (
           <SwiperSlide key={item} className="h-auto">
-            <div className="bg-[#FFF9F4] p-4 sm:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-orange-200 h-full">
-              
+            <div
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="bg-[#FFF9F4] p-4 sm:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-orange-200 h-full"
+            >
               <div className="overflow-hidden rounded-xl lg:rounded-2xl">
                 <img
                   src={partner}
