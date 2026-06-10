@@ -6,72 +6,124 @@ import {
   FaWordpress,
 } from "react-icons/fa";
 
-
 function Footer() {
   return (
     <footer className="bg-orange-500 text-white mt-20">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           
+          {/* About Us */}
           <div>
             <h3 className="font-semibold text-lg mb-5">About Us</h3>
+
             <ul className="space-y-4 text-sm">
-              <li>Why Get Listed?</li>
-              <li>Awards and badges</li>
-              <li>Media Coverage</li>
-              <li>Register your Software or Company</li>
-              <li>Write for us</li>
-              <li>Upgrade & Promotion</li>
-              <li>Blog</li>
-              <li>Terms of use</li>
-              <li>Privacy Policy</li>
-              <li>Contact Us</li>
+              {[
+                "Why Get Listed?",
+                "Awards and badges",
+                "Media Coverage",
+                "Register your Software or Company",
+                "Write for us",
+                "Upgrade & Promotion",
+                "Blog",
+                "Terms of use",
+                "Privacy Policy",
+                "Contact Us",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="hover:text-orange-200 transition-all duration-300"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Services */}
           <div>
             <h3 className="font-semibold text-lg mb-5">Services</h3>
+
             <ul className="space-y-4 text-sm">
-              <li>Mobile App Development</li>
-              <li>Web Development</li>
-              <li>E-commerce Development</li>
-              <li>Software Development</li>
-              <li>Digital Marketing</li>
-              <li>SEO Services</li>
-              <li>App Designing (UI/UX)</li>
-              <li>Block Chain Technology</li>
+              {[
+                "Mobile App Development",
+                "Web Development",
+                "E-commerce Development",
+                "Software Development",
+                "Digital Marketing",
+                "SEO Services",
+                "App Designing (UI/UX)",
+                "Block Chain Technology",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="hover:text-orange-200 transition-all duration-300"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Software */}
           <div>
             <h3 className="font-semibold text-lg mb-5">Software</h3>
+
             <ul className="space-y-4 text-sm">
-              <li>Accounting Software</li>
-              <li>CRM Software</li>
-              <li>HR Software</li>
-              <li>School Management Software</li>
-              <li>Point Of Sale Software</li>
-              <li>Applicant Tracking System</li>
-              <li>Cheque Printing Software</li>
-              <li>Field Service Management Software</li>
+              {[
+                "Accounting Software",
+                "CRM Software",
+                "HR Software",
+                "School Management Software",
+                "Point Of Sale Software",
+                "Applicant Tracking System",
+                "Cheque Printing Software",
+                "Field Service Management Software",
+              ].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="hover:text-orange-200 transition-all duration-300"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Social */}
           <div>
             <h3 className="font-semibold text-lg mb-5">Social</h3>
 
             <div className="flex gap-5 text-lg mb-10">
-              <FaFacebookF />
-              <FaInstagram />
-              <FaTwitter />
-              <FaYoutube />
-              <FaWordpress />
+              <a href="#" className="hover:scale-110 transition-all duration-300">
+                <FaFacebookF />
+              </a>
+
+              <a href="#" className="hover:scale-110 transition-all duration-300">
+                <FaInstagram />
+              </a>
+
+              <a href="#" className="hover:scale-110 transition-all duration-300">
+                <FaTwitter />
+              </a>
+
+              <a href="#" className="hover:scale-110 transition-all duration-300">
+                <FaYoutube />
+              </a>
+
+              <a href="#" className="hover:scale-110 transition-all duration-300">
+                <FaWordpress />
+              </a>
             </div>
 
             <h2 className="text-4xl font-bold">TDI</h2>
             <p className="text-xs mt-1">ONLINE SERVICES PVT. LTD.</p>
           </div>
-
         </div>
 
         <div className="border-t border-orange-300 mt-16 pt-8 text-center text-sm">
